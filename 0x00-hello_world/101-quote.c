@@ -2,6 +2,9 @@
 
 /**
  * write - Optional function to print in console
+ * @filedes: I don't know yet
+ * @buf: I don't know yet
+ * @nbyte: I don't know yet
  * Return: null
  */
 int write(int filedes, const char *buf, unsigned int nbyte);
