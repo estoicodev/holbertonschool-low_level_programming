@@ -12,10 +12,6 @@ int abclen = strlen(abc);
 int i;
 for (i = 0; i < abclen; i++)
 {
-if (i == 4 || i == 16)
-{
-continue;
-}
 putchar(abc[i]);
 }
 putchar('\n');
