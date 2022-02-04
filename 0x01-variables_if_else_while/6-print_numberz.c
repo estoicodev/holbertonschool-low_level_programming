@@ -7,12 +7,10 @@
  */
 int main(void)
 {
-char abc[] = "0123456789";
-int abclen = strlen(abc);
 int i;
-for (i = 0; i < abclen; i++)
+for (i = 48; i < 58; i++)
 {
-putchar(abc[i]);
+putchar(i);
 }
 putchar('\n');
 return (0);
