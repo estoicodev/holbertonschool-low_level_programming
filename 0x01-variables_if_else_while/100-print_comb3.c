@@ -12,7 +12,7 @@ int a;
 int b;
 int c;
 int h;
-int contadoPrimerDigito;    
+int contadoPrimerDigito;
 a = 48;
 c = 1;
 contadoPrimerDigito = 1;
@@ -24,7 +24,7 @@ putchar(a);
 c++;
 if (c > 9)
 {
-contadoPrimerDigito++; 
+contadoPrimerDigito++;
 c = contadoPrimerDigito;
 a++;
 }
