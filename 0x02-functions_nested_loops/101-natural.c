@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * natural - Prints the sum of all multiples of 3 and 5 below 1024  
+ * natural - Prints the sum of all multiples of 3 and 5 below 1024
  * Return: void
  */
 void natural(void)
