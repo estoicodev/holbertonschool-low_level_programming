@@ -6,7 +6,7 @@
  */
 void fibonacci_98(void)
 {
-unsigned long long a, b, c;
+unsigned long long int a, b, c;
 int i;
 a = 1;
 b = 2;
