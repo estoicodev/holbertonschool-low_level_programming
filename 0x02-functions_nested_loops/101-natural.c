@@ -22,3 +22,13 @@ sum += i;
 }
 printf("%d\n", sum);
 }
+
+/**
+ * main - main function
+ * Return: 0 (Success)
+ */
+int main(void)
+{
+natural();
+return (0);
+}
