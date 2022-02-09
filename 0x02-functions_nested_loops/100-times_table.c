@@ -18,12 +18,15 @@ for (multiplicador = 0; multiplicador < n + 1; multiplicador++)
 {
 int res;
 res = multiplicando * multiplicador;
-if (res < 10)
-{
 if (multiplicador != 0)
 {
 _putchar(',');
 _putchar(' ');
+}
+if (res < 10)
+{
+if (multiplicador != 0)
+{
 _putchar(' ');
 _putchar(' ');
 }
@@ -32,21 +35,12 @@ _putchar(res + '0');
 else if (res >= 10 && res < 100)
 {
 if (multiplicador != 0)
-{
-_putchar(',');
 _putchar(' ');
-_putchar(' ');
-}
 _putchar((res / 10) + '0');
 _putchar((res % 10) + '0');
 }
 else if (res >= 100 && res < 1000)
 {
-if (multiplicador != 0)
-{
-_putchar(',');
-_putchar(' ');
-}
 _putchar((res / 100) + '0');
 _putchar(((res / 10) % 10) + '0');
 _putchar((res % 10) + '0');
