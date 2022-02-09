@@ -7,7 +7,7 @@
  */
 void fibonacci_even_terms(void)
 {
-int a, b, c, i;
+int a, b, c;
 long int sum;
 a = 1;
 b = 2;
