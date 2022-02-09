@@ -10,7 +10,7 @@ void print_times_table(int n)
 {
 if (n >= 0 && n < 15)
 {
-int multiplicando, multiplicando;
+int multiplicando, multiplicador;
 for (multiplicando = 0; multiplicando < n + 1; multiplicando++)
 {
 for (multiplicador = 0; multiplicador < n + 1; multiplicador++)
