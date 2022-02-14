@@ -3,7 +3,7 @@
 /**
  * reset_to_98 - Checks for uppercase charactertakes a pointer to an
  * int as parameter and updates the value it points to to 98.
- *
+ * @n: integer
  * Return: void
  */
 void reset_to_98(int *n)
