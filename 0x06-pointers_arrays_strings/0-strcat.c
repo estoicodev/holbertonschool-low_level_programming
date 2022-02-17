@@ -6,17 +6,16 @@
  * @src: Second string
  * Return: String after concatenation
  */
-char *_strcat(char *dest, char *src)
+char *_strcat (char *dest, char *src)
 {
 	int len, i;
 
 	len = 0;
 	while (*dest)
 	{
-		len++;
 		dest++;
+		len++;
 	}
-
 	for (i = 0; *(src + i); i++)
 	{
 		*dest = *(src + i);
@@ -24,11 +23,9 @@ char *_strcat(char *dest, char *src)
 		len++;
 	}
 	*dest = '\0';
-	dest--;
-	dest--;
+	dest -= 2;
 
-	len--;
-	len--;
+	len -= 2;
 	while (len > 0)
 	{
 		dest--;
