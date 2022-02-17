@@ -31,6 +31,7 @@ char *_strcat(char *dest, char *src)
 	*dest = '\0';
 	dest++;
 	*dest = '\0';
+	dest--;
 
 	len--;
 	while (len > 0)
