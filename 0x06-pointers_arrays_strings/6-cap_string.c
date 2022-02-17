@@ -14,6 +14,10 @@ char *cap_string(char *c)
 	{
 		if (*(c + i) >= 97 && *(c + i) <= 122)
 		{
+			if (i == 0)
+			{
+				*(c + i) = *(c + i) - 32;
+			}
 			for (j = 0; j < 13; j++)
 			{
 				if (*(c + i - 1) == ascii[j])
