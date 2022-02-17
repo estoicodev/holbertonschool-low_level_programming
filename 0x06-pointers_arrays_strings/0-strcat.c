@@ -28,6 +28,10 @@ char *_strcat(char *dest, char *src)
 		dest++;
 		len++;
 	}
+	*dest = '\0';
+	dest++;
+	*dest = '\0';
+
 	len--;
 	while (len > 0)
 	{
