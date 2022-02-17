@@ -9,19 +9,14 @@
 char *_strcat(char *dest, char *src)
 {
 	int len, i;
-	char *p_count = src;
 
+	len = 0;
 	while (*dest)
 	{
+		len++;
 		dest++;
 	}
 
-	len = 0;
-	while (*p_count)
-	{
-		len++;
-		p_count++;
-	}
 	for (i = 0; *(src + i); i++)
 	{
 		*dest = *(src + i);
@@ -29,7 +24,10 @@ char *_strcat(char *dest, char *src)
 		len++;
 	}
 	*dest = '\0';
+	dest--;
+	dest--;
 
+	len--;
 	len--;
 	while (len > 0)
 	{
