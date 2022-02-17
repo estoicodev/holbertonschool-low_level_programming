@@ -3,41 +3,37 @@
 /**
  *  _strncat - concatenates two strings with n bytes of src.
  * @dest: First string
- * @src: Second string
+ * @src: Second string (concatenate to dest)
  * @n: Number of bytes concatenated of src
  * Return: The string concatenated
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int len, len_src, i;
-	char *p_src = src;
+	int len;
+	int i;
 
 	len = 0;
+
 	while (*dest)
 	{
 		dest++;
 		len++;
 	}
-	for (len_src = 0; *(src + len_src); len_src++)
-	{
-	}
-	if (n > len_src)
-	{
-		n = len_src;
-	}
+
 	for (i = 0; i < n; i++)
 	{
-		*dest = *p_src;
+		*dest = *(src + i);
 		dest++;
-		p_src++;
 		len++;
 	}
-	len--;
+
+	*dest = '\0';
+
 	while (len > 0)
 	{
 		dest--;
 		len--;
 	}
-	dest--;
+
 	return (dest);
 }
