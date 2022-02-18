@@ -7,32 +7,24 @@
  * @n: Number of bytes concatenated of src
  * Return: The string concatenated
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncat (char *dest, char *src, int n)
 {
-	int len;
-	int i;
+	int i, j, l;
 
-	len = 0;
+	for (i = 0; *(dest + i); i++)
+	{}
 
-	while (*dest)
+	for (j = 0; *(src + j); j++)
+	{}
+
+	if (j < n)
 	{
-		dest++;
-		len++;
+		n = j;
 	}
 
-	for (i = 0; i < n; i++)
+	for (l = 0; l < n; l++)
 	{
-		*dest = *(src + i);
-		dest++;
-		len++;
-	}
-
-	*dest = '\0';
-
-	while (len > 0)
-	{
-		dest--;
-		len--;
+		*(dest + i + l) = *(src + l);
 	}
 
 	return (dest);
