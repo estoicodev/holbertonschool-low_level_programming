@@ -7,7 +7,7 @@
  * @n: Number of bytes concatenated of src
  * Return: The string concatenated
  */
-char *_strncat (char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 
