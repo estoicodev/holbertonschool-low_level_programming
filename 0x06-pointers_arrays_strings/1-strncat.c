@@ -9,23 +9,18 @@
  */
 char *_strncat (char *dest, char *src, int n)
 {
-	int i, j, l;
+	int i, j;
 
-	for (i = 0; *(dest + i); i++)
+	for (i = 0; dest[i]; i++)
 	{}
 
-	for (j = 0; *(src + j); j++)
-	{}
-
-	if (j < n)
+	for (j = 0; src[j] != src[n]; j++)
 	{
-		n = j;
+		dest[i] = src[j];
+		i++;
 	}
 
-	for (l = 0; l < n; l++)
-	{
-		*(dest + i + l) = *(src + l);
-	}
+	dest[i] = '\n';
 
 	return (dest);
 }
