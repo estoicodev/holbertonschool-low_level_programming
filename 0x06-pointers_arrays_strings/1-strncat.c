@@ -27,5 +27,7 @@ char *_strncat (char *dest, char *src, int n)
 		*(dest + i + l) = *(src + l);
 	}
 
+	*(dest + i + l) = '\n';
+
 	return (dest);
 }
