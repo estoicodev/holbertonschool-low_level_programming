@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * _memset - desc
@@ -11,6 +12,11 @@
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
+
+	if (strlen(s) > n)
+	{
+		return (NULL);
+	}
 
 	for (i = 0; i < n; i++)
 	{
