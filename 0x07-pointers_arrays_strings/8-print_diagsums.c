@@ -9,7 +9,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i, j, len;
+	int i, len;
 	int count_one, count_two;
 	int sum_one, sum_two;
 
@@ -26,13 +26,10 @@ void print_diagsums(int *a, int size)
 			sum_one += *(a + i);
 			count_one += size + 1;
 		}
-	}
 
-	for (j = 0; j < len; j++)
-	{
-		if (j == count_two && j != len - 1)
+		if (i == count_two && i != len - 1)
 		{
-			sum_two += *(a + j);
+			sum_two += *(a + i);
 			count_two += size - 1;
 		}
 	}
