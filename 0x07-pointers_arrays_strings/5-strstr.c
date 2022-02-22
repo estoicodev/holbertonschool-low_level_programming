@@ -10,13 +10,9 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i, count, len_needle;
-	char *p_needle = needle;
 
-	len_needle = 0;
-	while (*p_needle)
+	for (len_needle = 0; *(needle + len_needle); len_needle++)
 	{
-		p_needle++;
-		len_needle++;
 	}
 
 	while (*haystack)
@@ -29,7 +25,10 @@ char *_strstr(char *haystack, char *needle)
 				count++;
 				if (count == len_needle)
 				{
-					return (haystack);
+					if (*(haystack + i + 1) == 32 || *(haystack + i + 1) == '\0')
+					{
+						return (haystack);
+					}
 				}
 			}
 		}
