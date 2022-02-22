@@ -9,30 +9,26 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, count, len_needle;
+	int i, count;
 
-	for (len_needle = 0; *(needle + len_needle); len_needle++)
-	{
-	}
-
-	while (*haystack)
+	i = 0;
+	while (haystack[i])
 	{
 		count = 0;
-		for (i = 0; *(needle + i); i++)
+
+		while (needle[count])
 		{
-			if (*(haystack + i) == *(needle + i))
+			if (needle[count] != haystack[i + count])
 			{
-				count++;
-				if (count == len_needle)
-				{
-					if (*(haystack + i + 1) == 32 || *(haystack + i + 1) == '\0')
-					{
-						return (haystack);
-					}
-				}
+				break;
 			}
+			count++;
 		}
-		haystack++;
+		if (needle[count] == '\0')
+		{
+			return (&haystack[i]);
+		}
+		i++;
 	}
 
 	return (NULL);
