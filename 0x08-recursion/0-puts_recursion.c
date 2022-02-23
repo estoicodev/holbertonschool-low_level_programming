@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * puts_recursion - desc
+ * _puts_recursion - desc
  * @s: desc
  *
  * Return: void
  */
-
 void _puts_recursion(char *s)
 {
 	if (*s == '\0')
