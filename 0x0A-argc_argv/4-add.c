@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 	int sum;
 	int count;
 	int flag;
-	char *remaining;
 	int num;
+	char *remaining;
 
 	sum = 0;
 	count = 0;
@@ -30,21 +30,26 @@ int main(int argc, char *argv[])
 			if (num > 0)
 				sum += num;
 		}
-		else
+		else if (count > 0)
+		{
 			flag = 1;
+			break;
+		}
 	}
 
 	if (count > 0 && flag == 0)
 	{
 		printf("%d\n", sum);
 	}
-	else if (flag == 1)
+	else if (count == 0)
+	{
+		printf("0\n");
+	}
+	else
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else
-		printf("0\n");
 
 	return (0);
 }
