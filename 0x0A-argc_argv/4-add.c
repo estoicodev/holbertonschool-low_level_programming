@@ -11,30 +11,36 @@
 int main(int argc, char *argv[])
 {
 	int i;
-        int sum;
+	int sum;
+	int count;
+	int flag;
 
 	sum = 0;
+	count = 0;
+	flag = 0;
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) > 0)
+		if (atoi(argv[i]) != 0)
 		{
-			sum += atoi(argv[i]);
+			count++;
+			if (atoi(argv[i]) > 0)
+				sum += atoi(argv[i]);
 		}
 		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+			flag = 1;
 	}
 
-	if (sum > 0)
+	if (count > 0 && flag == 0)
 	{
 		printf("%d\n", sum);
 	}
-	else
+	else if (flag == 1)
 	{
-		printf("0\n");
+		printf("Error\n");
+		return (1);
 	}
+	else
+		printf("0\n");
 
-        return (0);
+	return (0);
 }
