@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/**
+ * main - main function
+ * @argc: desc
+ * @argv: desc
+ *
+ * Return: Succeed 1
+ * Otherwise, 0.
+ */
 int main(int argc, char *argv[])
 {
 	int i;
@@ -9,5 +17,5 @@ int main(int argc, char *argv[])
 		printf("%s\n", argv[i]);
 	}
 
-        return (0);
+	return (0);
 }
