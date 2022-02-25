@@ -14,17 +14,21 @@ int main(int argc, char *argv[])
 	int sum;
 	int count;
 	int flag;
+	char *remaining;
+	int num;
 
 	sum = 0;
 	count = 0;
 	flag = 0;
+
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) != 0)
+		num = (int)strtol(argv[i], &remaining, 10);
+		if (*remaining == '\0')
 		{
 			count++;
-			if (atoi(argv[i]) > 0)
-				sum += atoi(argv[i]);
+			if (num > 0)
+				sum += num;
 		}
 		else
 			flag = 1;
