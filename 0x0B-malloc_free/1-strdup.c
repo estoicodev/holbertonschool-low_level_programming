@@ -11,16 +11,16 @@ char *_strdup(char *str)
 	int size, i;
 	char *s_array;
 
-	if (str == NULL)
-		return (NULL);
-
 	size = 0;
 	while (*(str + size))
 	{
 		size++;
 	}
 
-	s_array = (char *) malloc((size * sizeof(char)) + 1);
+	s_array = malloc((size * sizeof(char)) + 1);
+
+	if (str == NULL || s_array == NULL)
+		return (NULL);
 
 	i = 0;
 	while (i < size)
