@@ -9,26 +9,28 @@
  */
 int *array_range(int min, int max)
 {
-	int len, i;
+	int j, i, len;
 	int *ptr;
 
 	if (min > max)
-		return (NULL);
+		exit(1);
 
-	for (len = min; len <= max; len++)
-	{}
+	len = 0;
+
+	for (j = min; j <= max; j++)
+		len++;
 
 	ptr = malloc(sizeof(int) * len);
 
 	if (ptr == NULL)
 		return (NULL);
 
-	i = 0;
+	j = min;
 
-	for (len = min; len <= max; len++)
+	for (i = 0; i < len; i++)
 	{
-		*(ptr + i) = len;
-		i++;
+		*(ptr + i) = j;
+		j++;
 	}
 
 	return (ptr);
