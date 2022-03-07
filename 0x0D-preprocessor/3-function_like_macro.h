@@ -1,6 +1,6 @@
 #ifndef TASK_3
 #define TASK_3
 
-#define ABS(N) ((N) < (0) ? (N * -1) : (N))
+#define ABS(n) ((n) < (0) ? (n * -1) : (n))
 
 #endif
