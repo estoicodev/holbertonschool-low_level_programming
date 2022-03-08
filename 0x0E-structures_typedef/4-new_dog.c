@@ -12,21 +12,16 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t new;
 	dog_t *ptr;
-	char cp_name[] = name;
-	char cp_owner[] = owner;
 
-	new.name = name;
-	new.age = age;
-	new.owner = owner;
-
-	ptr = malloc(sizeof(new));
+	ptr = malloc(sizeof(struct dog));
 
 	if (ptr == NULL)
 		return (NULL);
 
-	ptr = &new;
+	ptr->name = name;
+	ptr->age = age;
+	ptr->owner = owner;
 
 	return (ptr);
 }
