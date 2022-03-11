@@ -116,17 +116,16 @@ void rev_string(char *str)
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list op;
-	unsigned int i;
-	int num;
+	unsigned int i, num;
 	char *str;
 
-	if (separator != NULL)
+	if (n > 0)
 	{
 		va_start(op, n);
 
 		for (i = 0; i < n; i++)
 		{
-			num = va_arg(op, int);
+			num = va_arg(op, unsigned int);
 
 			str = int_into_string(num);
 
@@ -134,7 +133,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 			printf("%s", str);
 
-			if (i != n - 1)
+			if (i != n - 1 && separator != NULL)
 				printf("%s", separator);
 		}
 	}
