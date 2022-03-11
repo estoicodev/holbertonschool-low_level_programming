@@ -89,7 +89,10 @@ void print_char_ptr(char *a, va_list b)
 	char *op = va_arg(b, char *);
 
 	if (op == NULL)
+	{
 		printf("%s(nil)", a);
-	else
-		printf("%s%s", a, op);
+		return;
+	}
+
+	printf("%s%s", a, op);
 }
