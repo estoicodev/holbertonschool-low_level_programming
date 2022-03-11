@@ -120,7 +120,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	int num;
 	char *str;
 
-	if (separator && n != 0)
+	if (separator != NULL)
 	{
 		va_start(op, n);
 
@@ -137,8 +137,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			if (i != n - 1)
 				printf("%s", separator);
 		}
-		printf("\n");
-
-		va_end(op);
 	}
+	printf("\n");
+
+	va_end(op);
 }
