@@ -1,6 +1,22 @@
 #include "lists.h"
 
 /**
+ * create_nodeint - desc
+ * @n: ...
+ *
+ * Return: void
+ */
+listint_t *create_nodeint(int n)
+{
+	listint_t *new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+
+	return (new);
+}
+/**
  * insert_nodeint_at_index - desc
  * @head: ...
  * @idx: ...
