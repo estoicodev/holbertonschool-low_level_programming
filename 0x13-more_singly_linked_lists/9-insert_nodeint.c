@@ -40,6 +40,20 @@ unsigned int count_listint(listint_t *head)
 }
 
 /**
+ * go_to_final_node - desc
+ * @head: ...
+ *
+ * Return: void
+ */
+listint_t *go_to_final_node(listint_t *head)
+{
+	while (head->next)
+		head = head->next;
+
+	return (head);
+}
+
+/**
  * insert_nodeint_at_index - desc
  * @head: ...
  * @idx: ...
@@ -58,6 +72,12 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (!*head && idx == 0)
 		*head = new;
+
+	if (idx == len)
+	{
+		before = go_to_final_node(*head);
+		before->next = new;
+	}
 
 	for (i = 0; i < len; i++)
 	{
