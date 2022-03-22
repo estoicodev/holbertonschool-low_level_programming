@@ -40,7 +40,7 @@ unsigned int count_listint(listint_t *head)
 }
 
 /**
- * get_nodeint_at_index - desc
+ * insert_nodeint_at_index - desc
  * @head: ...
  * @idx: ...
  * @n: ...
@@ -50,9 +50,11 @@ unsigned int count_listint(listint_t *head)
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	unsigned int i, len;
-	listint_t *before, *current;
-	listint_t *tmp = *head;
+	listint_t *before, *current, *tmp = *head;
 	listint_t *new = create_nodeint(n);
+
+	if (*head == NULL)
+		return (NULL);
 
 	if (new == NULL)
 		return (NULL);
