@@ -53,11 +53,11 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *before, *current, *tmp = *head;
 	listint_t *new = create_nodeint(n);
 
-	if (*head == NULL)
-		return (NULL);
-
 	if (new == NULL)
 		return (NULL);
+
+	if (!*head && idx == 0)
+		*head = new;
 
 	len = count_listint(*head);
 
