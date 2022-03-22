@@ -9,6 +9,7 @@
 listint_t *create_nodeint(int n)
 {
 	listint_t *new = malloc(sizeof(listint_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
