@@ -63,44 +63,30 @@ listint_t *go_to_final_node(listint_t *head)
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int i, len = count_listint(*head);
-	listint_t *before, *current, *tmp = *head;
 	listint_t *new = create_nodeint(n);
+	listint_t *tmp = *head;
+	unsigned int i;
 
-	if (new == NULL || len < idx)
+	if (new == NULL)
 		return (NULL);
 
-	if (!*head && idx == 0)
-		*head = new;
-
-	if (idx == len)
+	if (idx == 0)
 	{
-		before = go_to_final_node(*head);
-		before->next = new;
+		new->next = tmp;
+		*head = new;
+		return (new);
 	}
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < (idx - 1); i++)
 	{
-		if (idx != 0 && i == idx - 1)
-			before = tmp;
-
-		if (i == idx)
-		{
-			new->next = tmp;
-			current = tmp;
-			tmp = new;
-
-			if (idx != 0)
-				before->next = tmp;
-			else
-				*head = tmp;
-		}
-
-		if (i > idx)
-			tmp = current;
+		if (tmp == NULL)
+			return (NULL);
 
 		tmp = tmp->next;
 	}
+
+	new->next = tmp->next;
+	tmp->next = new;
 
 	return (new);
 }
