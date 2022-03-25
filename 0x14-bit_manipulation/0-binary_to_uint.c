@@ -12,20 +12,21 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int mul = 1;
 	int len;
 
-	if (b[0] == '\0')
+	if (*b == '\0')
 		return (0);
 
 	for (len = 0; b[len]; len++)
 	{}
 
 	len--;
-	for (; len >= 0; len--)
+	while (len >= 0)
 	{
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
 
 		n += (b[len] - '0') * mul;
 		mul *= 2;
+		len--;
 	}
 
 	return (n);
