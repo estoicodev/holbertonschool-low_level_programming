@@ -15,7 +15,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	while (n_xor_m >= 1)
 	{
-		active = n_xor_m & 1;
+		active = (n_xor_m & 1);
 		if (active == 1)
 			count++;
 
