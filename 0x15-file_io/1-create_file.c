@@ -23,7 +23,7 @@ int create_file(const char *filename, char *text_content)
 
 	text_len = _strlen(text_content);
 
-	file_len = write(STDOUT_FILENO, text_content, text_len);
+	file_len = write(fd, text_content, text_len);
 
 	if (file_len != text_len)
 		return (-1);
