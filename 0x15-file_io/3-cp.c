@@ -37,13 +37,18 @@ int cp_text_file_into_file(const char *filefrom, const char *fileto)
 
 	cs = close(fdfrom);
 	if (cs == -1)
-		return (fdfrom);
-
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
+		return (100);
+	}
 	cs = close(fdto);
 	if (cs == -1)
-		return (fdto);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
+		return (100);
+	}
 
-	return (42);
+	return (0);
 }
 
 /**
@@ -59,7 +64,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -67,19 +72,16 @@ int main(int argc, char **argv)
 
 	if (res == 98)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	else if (res == 99)
 	{
-		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		exit(99);
 	}
-	else if (res != 42)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", res);
+	else if (res == 100)
 		exit(100);
-	}
 
 	return (0);
 }
