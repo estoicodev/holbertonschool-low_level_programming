@@ -9,7 +9,7 @@
  */
 int cp_text_file_into_file(const char *filefrom, const char *fileto)
 {
-	int fdfrom, fdto, cs, rd, rd_next;
+	int fdfrom, fdto, cs1, cs2, rd, rd_next;
 	char *buf[1024];
 
 	fdfrom = open(filefrom, O_RDONLY);
@@ -35,16 +35,16 @@ int cp_text_file_into_file(const char *filefrom, const char *fileto)
 			return (98);
 	}
 
-	cs = close(fdfrom);
-	if (cs == -1)
+	cs1 = close(fdfrom);
+	if (cs1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs1);
 		return (100);
 	}
-	cs = close(fdto);
-	if (cs == -1)
+	cs2 = close(fdto);
+	if (cs2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs2);
 		return (100);
 	}
 
@@ -54,11 +54,11 @@ int cp_text_file_into_file(const char *filefrom, const char *fileto)
 /**
  * main - desc
  * @argc: ...
- * @argv: ...
+ * @av: ...
  *
  * Return: ...
  */
-int main(int argc, char **argv)
+int main(int argc, char **av)
 {
 	int res;
 
@@ -68,16 +68,16 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	res = cp_text_file_into_file(argv[1], argv[2]);
+	res = cp_text_file_into_file(av[1], av[2]);
 
 	if (res == 98)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	else if (res == 99)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(99);
 	}
 	else if (res == 100)
