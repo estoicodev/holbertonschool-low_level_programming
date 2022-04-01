@@ -13,36 +13,36 @@ int cp_text_file_into_file(const char *filefrom, const char *fileto)
 	char *buf[1024];
 
 	fdfrom = open(filefrom, O_RDONLY);
-	if (fdfrom < 0)
+	if (fdfrom == -1)
 		return (98);
 
 	fdto = open(fileto, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fdto < 0)
+	if (fdto == -1)
 		return (99);
 
 	rd = read(fdfrom, buf, 1024);
-	if (rd < 0)
+	if (rd == -1)
 		return (98);
 
 	while (rd > 0)
 	{
 		rd_next = write(fdto, buf, rd);
-		if (rd_next < 0)
+		if (rd_next == -1)
 			return (99);
 
 		rd = read(fdfrom, buf, 1024);
-		if (rd < 0)
+		if (rd == -1)
 			return (98);
 	}
 
 	cs = close(fdfrom);
-	if (cs < 0)
+	if (cs == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
 		return (100);
 	}
 	cs = close(fdto);
-	if (cs < 0)
+	if (cs == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cs);
 		return (100);
