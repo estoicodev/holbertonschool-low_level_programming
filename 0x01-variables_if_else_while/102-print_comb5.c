@@ -15,7 +15,7 @@ int main(void)
 		{
 			for (y = '0'; y <= '9'; y++)
 			{
-				if (x >= a && y > b || x > a && y == '0')
+				if ((x >= a && y > b) || (x > a && y == '0'))
 				{
 					putchar(a);
 					putchar(b);
