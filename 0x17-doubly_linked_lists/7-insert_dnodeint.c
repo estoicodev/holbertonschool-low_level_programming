@@ -32,7 +32,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	unsigned int i;
 
 	new = create_dnodeint(n);
-	if (new == NULL)
+	if (new == NULL || idx < 0)
 		return (NULL);
 
 	if (idx == 0)
