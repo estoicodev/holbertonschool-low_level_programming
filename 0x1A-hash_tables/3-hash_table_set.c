@@ -73,7 +73,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	current_item = ht->array[index];
 	if (current_item == NULL)
+	{
+		free(value_cpy);
 		ht->array[index] = item;
+	}
 	else
 	{
 		while (current_item != NULL)
@@ -87,6 +90,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			current_item = current_item->next;
 		}
+		free(value_cpy);
 		item->next = ht->array[index];
 		ht->array[index] = item;
 	}
