@@ -87,6 +87,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
+			while (current_item != NULL)
+			{
+				if (strcmp(current_item->key, key) == 0)
+				{
+					free_hash_node(item);
+					free(current_item->value);
+					current_item->value = value_cpy;
+					return (1);
+				}
+				current_item = current_item->next;
+			}
 			item->next = ht->array[index];
 			ht->array[index] = item;
 			return (1);
